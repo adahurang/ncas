@@ -1,0 +1,135 @@
+<script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <div class="pull-right">
+            <a class="btn btn-danger" ng-click="$ctrl.cancel()">Cancel</a>
+            </div>
+        </div>
+        <div class="modal-body" id="modal-body">
+            <canvas id="canvasX"/>
+        </div>
+</script>
+
+<div ng-include="'views/nav.html'" class="relative"></div>
+<div class="container container-min">
+  
+<div class="error" ng-if="import.error">
+  {{import.error}}
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3>New Activity</h3>
+  </div>
+  <div class="panel-body">
+  <div>
+    
+    <div class="form-horizontal">
+      <div class="form-group">
+      <label class="col-sm-3 control-label" for="activityType">Activity Type * : </label>
+      <div class="col-sm-9">
+        <select name="repeatSelect"  class="form-control"
+           id="repeatSelect" 
+           ng-model="import.typeId"
+           ng-init="import.typeId = import.types[0].id"  
+           ng-options="option.id as option.name for option in import.types">          
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="activityName">Name * : </label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="activityName" ng-model="import.name"/>
+      </div>
+    </div>
+      <div class="form-group">
+      <label class="col-sm-3 control-label" for="activityVenue">Venue * : </label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="activityVenue" ng-model="import.venue"/>
+      </div>
+    </div>
+      <div class="form-group">
+      <label class="col-sm-3 control-label" for="activityDays">Multiple Days?: </label>
+      <div class="col-sm-9">
+        <input type="checkbox" id="activityDays" ng-model="import.isMultipleDays"/>
+      </div>
+    </div>
+      <div class="form-group">
+      <div ng-if="!import.isMultipleDays">
+        <label class="col-sm-3 control-label" for="activitySingleDate">Date * : </label>
+      <div class="col-sm-9">
+        <input type="date" class="form-control" id="activitySingleDate" ng-model="import.startDate"/>
+      </div>
+      </div>
+        <div ng-if="import.isMultipleDays">
+        <label class="col-sm-3 control-label" for="activityMultiDateStart">From * : </label>
+      <div class="col-sm-3">
+        <input type="date" class="form-control" id="activityMultiDateStart" ng-model="import.startDate"/>
+      </div>
+          <label class="col-sm-2 control-label" for="activityMultiDateEnd">To * : </label>
+      <div class="col-sm-4">
+        <input type="date" class="form-control" id="activityMultiDateEnd" ng-model="import.endDate"/>
+      </div>
+      </div>
+    </div>
+      <div class="form-group">
+      <label class="col-sm-3 control-label" for="printDeadline">Print Deadline: </label>
+      <div class="col-sm-9">
+        <input type="date" class="form-control" id="printDeadline" ng-model="import.deadLine"/>
+      </div>
+    </div>
+      <div class="form-group">
+      <label class="col-sm-3 control-label" for="printDeadline">Certificate 1st Text *: </label>
+      <div class="col-sm-9">
+        <textarea-limiter placeholder="Use '\n' to make the trailing text be on a new line. e.g: This is on the first line \nThis is on a new line below" 
+          class="form-control auto-height" ng-model="import.certText1" rows="2" max="150"></textarea-limiter>
+      </div>
+    </div>
+      <div class="form-group">
+      <label class="col-sm-3 control-label" for="printDeadline">Certificate 2st Text: </label>
+      <div class="col-sm-9">
+        <textarea-limiter placeholder="Use '\n' to make the trailing text be on a new line. e.g: This is on the first line \nThis is on a new line below"  
+          class="form-control auto-height" ng-model="import.certText2" rows="2" max="150"></textarea-limiter>
+      </div>
+    </div>
+      <div class="form-group">
+      <label class="col-sm-3 control-label" for="printDeadline">CLE Hours *: </label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="units" ng-model="import.units" placeholder="E.g: 5 (Five)"/>
+      </div>
+    </div>
+      <div>
+        <a class="btn btn-default nba-button pull-right" ng-click="import.preview('lg')"><i class="fa fa-eye"></i> Preview Certificate</a> 
+        
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:50px">
+    <h4>Import Attendants</h4>
+    <div class="form-horizontal">
+      <div class="form-group">
+      <label class="col-sm-3 control-label" for="attendantsData">Excel Doc: </label>
+      <div class="col-sm-9">
+        <input type="file" class="form-control" id="attendantsData" />
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+  <div class="panel-footer">
+    <div class="row">
+      <div class="col-sm-3">
+
+      </div>
+      <div class="col-sm-9">
+       <br />
+      <a class="btn btn-success pull-right" ng-click="import.saveImport()" style="margin-bottom: 20px"><i class="fa fa-floppy-o"></i>&nbsp;&nbsp;Save & Import</a>
+      <a class="btn btn-default pull-right" style="margin-right: 30px" href="https://1drv.ms/x/s!Ao5VDbm9hsa7onqtn4kWk9jc7mlb" target="_blank">Download Template</a>
+      </div>
+    </div>
+  </div>
+</div>
+  <img src="../images/icle-cert.png" class="cert-print" id="cert-print"/>
+  <img src="../images/icle-cert-sec.png" class="cert-print" id="cert-print-sec"/>
+  <canvas id="canvasX2" class="canvas-hide"/>
+    <div id="modal-parent"></div>
+  <div style="visibility:hidden"><span class="calibri">Test font 1</span><span class="mrDafoe">Test font 2</span></div>
+  </div>

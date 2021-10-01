@@ -1,0 +1,54 @@
+﻿<div ng-include="'views/nav.html'" class="relative"></div>
+<div class="container container-min">
+
+<div class="error" ng-if="newadmin.error">
+  {{newadmin.error}}
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+      <h4>New Administrator</h4>
+    </div>
+  <div class="panel-body">
+    <div class="form-horizontal">
+      <div class="form-group">
+      <label class="col-sm-3 control-label" for="activityType">Role * : </label>
+      <div class="col-sm-9">
+        <select name="repeatSelect"  class="form-control"
+           id="repeatSelect" 
+           ng-model="newadmin.roleId"
+           ng-init="newadmin.roleId = newadmin.roles[0].id"  
+           ng-options="option.name as option.name for option in newadmin.roles">          
+        </select>
+      </div>
+    </div>
+      <div class="form-group">
+      <label class="col-sm-3 control-label" for="activityName">Username * : </label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="activityName" ng-model="newadmin.username"/>
+      </div>
+    </div>
+      <div class="form-group">
+      <label class="col-sm-3 control-label" for="activityName">Password * : </label>
+      <div class="col-sm-9">
+        <input type="password" class="form-control" id="activityName" ng-model="newadmin.password"/>
+      </div>
+    </div>
+      <div class="form-group">
+      <label class="col-sm-3 control-label" for="activityName">Confirm Password * : </label>
+      <div class="col-sm-9">
+        <input type="password" class="form-control" id="activityName" ng-model="newadmin.confirm"/>
+      </div>
+    </div>
+      </div>
+  </div>
+  <div class="panel-footer">
+    <div class="row">
+      <div class="col-md-12">
+        <a class="btn btn-success pull-right" ng-click="newadmin.save()" style="margin-bottom: 20px"><i class="fa fa-floppy-o"></i>&nbsp;&nbsp;Save</a>
+      </div>
+    </div>
+    
+      
+  </div>
+  </div>
+  </div>

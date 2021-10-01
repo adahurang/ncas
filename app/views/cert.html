@@ -1,0 +1,121 @@
+<script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <div class="pull-right">
+            <a class="btn btn-success" ng-click="$ctrl.ok()"><i class="fa fa-print"></i>&nbsp;&nbsp;Print</a>
+            <a class="btn btn-danger" ng-click="$ctrl.cancel()">Cancel</a>
+            </div>
+        </div>
+        <div class="modal-body" id="modal-body">
+            <canvas id="canvasX"/>
+        </div>
+</script>
+
+<div class="container container-min">
+  <div style="height: 100px; width: 230px; background-image:url('/images/logo.png'); background-repeat:no-repeat;background-position:center center;
+ display: table; margin: 0px auto; background-size:contain">
+
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default" ng-if="!cert.error">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-md-6">
+              <h4>Lawyer Details</h4><br />
+              <div>
+                <form class="form-horizontal">
+                  <div class="form-group">
+                    <label class="col-sm-2">Fullname: </label>
+                    <div class="col-sm-10">
+                      <span>{{cert.attendant.surname + " " + cert.attendant.firstName + " " + (cert.attendant.middleName
+                        || "")}}</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-2">SCN: </label>
+                    <div class="col-sm-10">
+                      <span>{{cert.attendant.scn}}</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-2">Branch: </label>
+                    <div class="col-sm-10">
+                      <span>{{cert.attendant.branch}}</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-2">Email: </label>
+                    <div class="col-sm-10">
+                      <span>{{cert.attendant.email}}</span>
+                    </div>
+                  </div>
+                </form>
+
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <h4>Activity Details</h4><br />
+              <div>
+                <form class="form-horizontal">
+                  <div class="form-group">
+                    <label class="col-sm-2">Type: </label>
+                    <div class="col-sm-10">
+                      <span>{{cert.attendant.activity.activityType.name}}</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-2">Title: </label>
+                    <div class="col-sm-10">
+                      <span>{{cert.attendant.activity.title}}</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-2">Location: </label>
+                    <div class="col-sm-10">
+                      <span>{{cert.attendant.activity.location}}</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-2">Date: </label>
+                    <div class="col-sm-10">
+                      <span>{{cert.dates}}</span>
+                    </div>
+                  </div>
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-body">
+          <h3>Certificate</h3><br />
+          <div>
+            <!--<div class="col-sm-10">
+            <img src="../images/icle-cert.jpg" class="cert-preview" id="cert"/>            
+          </div>-->
+
+            <div class="col-sm-2">
+              <a class="btn btn-default nba-button" ng-click="cert.preview('lg')"><i class="fa fa-eye"></i> Preview</a>
+              <br /><br />
+              <a class="btn btn-success nba-button" ng-click="cert.print()"><i
+                  class="fa fa-print"></i>&nbsp;&nbsp;Print</a>
+            </div>
+          </div>
+          <img src="../images/icle-cert.png" class="cert-print" id="cert-print" />
+          <img src="../images/icle-cert-sec.png" class="cert-print" id="cert-print-sec" />
+        </div>
+      </div>
+      <div ng-if="cert.error">
+        <div class="text-center" style="margin-top: 40px">
+          <h3>{{cert.errorMessage}}</h3>
+        </div>
+      </div>
+    </div>
+    <div id="modal-parent"></div>
+
+    <canvas id="canvasX2" class="canvas-hide" />
+  </div>
+
+</div>
+<div style="visibility:hidden"><span class="calibri">Test font 1</span><span class="mrDafoe">Test font 2</span></div>

@@ -1,0 +1,48 @@
+<div ng-include="'views/nav.html'" class="relative"></div>
+<div class="container container-min">
+
+<div class="error" ng-if="attendants.error">
+  {{attendants.error}}
+</div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3>{{attendants.heading}}</h3>
+    </div>
+    <div class="panel-body">
+      <div>
+  
+  <div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+        <th></th>
+        <th ng-repeat="heading in attendants.headings">{{heading}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="row in attendants.data.slice(((attendants.pagination.currentPage-1) * attendants.pagination.pageSize), ((attendants.pagination.currentPage) * attendants.pagination.pageSize))">
+          <td><i ng-click="attendants.toggle(row, $index)" class="fa pointer" 
+            ng-class="{'fa-check font-green' : row.selected, 'fa-ban font-red': !row.selected}"></i></td>
+          <td ng-repeat="heading in attendants.headings">{{row[heading]}}</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    </div>
+</div>
+    </div>
+    <div class="panel-footer">
+      <div class="row">
+      <div class="col-sm-9">
+        <ul uib-pagination total-items="attendants.data.length" ng-model="attendants.pagination.currentPage" items-per-page="attendants.pagination.pageSize" force-ellipses="true" max-size="10"></ul>
+      </div>
+      <div class="col-sm-3">
+        <a class="btn btn-success pull-right margin-top-20" ng-click="attendants.save()"><i class="fa fa-floppy-o"></i>&nbsp;&nbsp;&nbsp;&nbsp;Save</a>
+      </div>
+    </div>
+    </div>
+  </div>
+
+
+  </div>

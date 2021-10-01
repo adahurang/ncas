@@ -1,0 +1,258 @@
+
+.browsehappy {
+  margin: 0.2em 0;
+  background: rgb(255, 255, 255);
+  color: #000;
+  padding: 0.2em 0;
+}
+
+body {
+  padding: 0;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 10px;
+}
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+  padding-bottom: 19px;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+body {
+  background-color: #faf9f8;
+}
+
+.container-min {
+  min-height: 630px;
+}
+
+.navbar-brand {
+  padding: 0 15px;
+}
+.login-input {
+  margin-bottom: 8px;
+  text-align: center;
+}
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+.jumbotron .btn {
+  font-size: 21px;
+  padding: 14px 24px;
+}
+
+.cert-print {
+  width: 1140px;
+  display: none;
+}
+
+.canvas-hide {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#canvasX {
+  width: 100% !important;
+}
+
+.cert-preview {
+  width: 50%;
+}
+.disabled {
+  cursor: not-allowed !important;
+  color: #ccc !important;
+}
+.error {
+  color: #fff;
+  background-color: #ff6a00;
+  padding: 5px 50px;
+}
+.print-cert-portrait {
+  size: landscape;
+  margin: 0;
+}
+
+.relative {
+  position: relative;
+}
+
+.form-group {
+  margin-bottom: 5px;
+}
+
+.nba-button {
+  min-width: 100px;
+}
+
+.font-green {
+  color: forestgreen;
+}
+
+.font-red {
+  color: red;
+}
+
+.bg-green {
+  background-color: forestgreen;
+}
+
+.bg-red {
+  background-color: red;
+}
+
+.text-limiter input {
+  width: 93%;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+.text-limiter input:focus {
+  border: none;
+  outline: 0 none;
+}
+
+.text-limiter textarea {
+  width: 93%;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+.auto-height {
+  height: auto !important;
+}
+
+.text-limiter textarea:focus {
+  border: none;
+  outline: 0 none;
+}
+
+.text-limiter label {
+  float: right;
+  max-width: 7%;
+  font-size: small;
+  font-weight: normal;
+}
+
+.calibri {
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+}
+
+.mrDafoe {
+  font-family: "Berkshire Swash", cursive, Candara, Segoe, "Segoe UI", Optima,
+    Arial, sans-serif;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+.margin-top-10 {
+  margin-top: 10px;
+}
+.margin-top-20 {
+  margin-top: 20px;
+}
+
+.nav-dropdown {
+  float: left;
+  position: relative;
+  display: block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.nav-dropdown > a {
+  padding: 15px 10px;
+  line-height: 20px;
+  color: #777;
+  display: block;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.nav-dropdown > a:hover {
+  color: #000;
+}
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 1200px) {
+  .container {
+    max-width: 1000px;
+  }
+
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    /*margin-bottom: 30px;*/
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) and (max-width: 1080px) {
+  .container {
+    max-width: 730px;
+  }
+
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    /*margin-bottom: 30px;*/
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}

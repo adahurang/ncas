@@ -1,0 +1,49 @@
+﻿<div ng-include="'views/nav.html'" class="relative"></div>
+<div class="container container-min">
+
+<div class="error" ng-if="activityType.error">
+  {{activityType.error}}
+</div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3>Activity Types</h3>
+    </div>
+    <div class="panel-body">
+      <div>
+  <div class="form-horizontal">
+      <div class="form-group" style="margin-top: 50px">
+      <label class="col-sm-1 control-label" for="activityType">Name: </label>
+      <div class="col-sm-11">
+        <input type="text" class="form-control" id="activityName" ng-model="activityType.name"/>
+      </div>
+    </div>
+    <div>
+      <a ng-click="activityType.add()" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add New Activity Type</a>
+    </div>
+    </div>
+
+  <div style="margin-top: 100px">
+    <h4>Existing Types</h4>
+    <table class="table table-striped">
+      <thead>
+        <tr><th>Name</th><th class="col-sm-2">Actions</th></tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="type in activityType.data">
+          <td>{{type.name}}</td>
+          <td class="col-sm-1"><a ng-click="activityType.delete(type.id)" title="Delete this record" class="pointer"><i class="fa fa-trash"></i></a>&nbsp;&nbsp;&nbsp; 
+            <!--<a ng-click="activityType.edit(type.Id)" class="pointer" title="Edit this record"><i class="fa fa-pencil"></i></a>-->
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+    </div>
+    <div class="panel-footer"></div>
+  </div>
+
+
+  </div>

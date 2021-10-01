@@ -1,0 +1,47 @@
+﻿<div ng-include="'views/nav.html'" class="relative"></div>
+<div class="container container-min">
+
+<div class="error" ng-if="admins.error">
+  {{admins.error}}
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="row">
+        <div class="col-md-9">
+        <h3>Administrators</h3>
+      </div>
+      <div class="col-md-3">
+        <a href="/newadmin" class="btn btn-success pull-right margin-top-10" ><i class="fa fa-plus"></i>&nbsp;&nbsp;&nbsp; New Administrator</a>
+      </div>
+      </div>
+    </div>
+  <div class="panel-body">
+    <div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+        <th>Username</th>
+        <th>Role</th>
+        <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="row in admins.data.slice(((admins.pagination.currentPage-1) * admins.pagination.pageSize), ((admins.pagination.currentPage) * admins.pagination.pageSize))">
+          <td>{{row.userName}}</td>
+          <td>{{admins.getRole(row.aspNetRoles)}}</td>
+          <td>
+            <a ng-click="admins.delete(row)" title="Delete"><i class="fa fa-trash pointer"></i></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    
+    </div>
+  </div>
+  <div class="panel-footer">
+    <div>
+      <ul uib-pagination total-items="admins.data.length" ng-model="admins.pagination.currentPage" items-per-page="admins.pagination.pageSize"></ul>
+      
+    </div>
+  </div>
+</div>
